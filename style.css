@@ -1,0 +1,362 @@
+:root {
+  --bg: #f5f7f8;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-solid: #ffffff;
+  --text: #202427;
+  --muted: #65717b;
+  --accent: #8a6249;
+  --accent-strong: #5d3f30;
+  --tech: #2f89a8;
+  --line: rgba(32, 36, 39, 0.12);
+  --shadow: 0 24px 70px rgba(17, 24, 39, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+.hero {
+  position: relative;
+  min-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  padding: 28px clamp(20px, 6vw, 82px) 72px;
+  background:
+    linear-gradient(105deg, rgba(10, 16, 23, 0.92) 0%, rgba(16, 29, 39, 0.82) 42%, rgba(10, 16, 23, 0.38) 100%),
+    url("assets/hero-tech.jpg") center/cover;
+  color: #f8fbff;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 34%;
+  background: linear-gradient(0deg, rgba(245, 247, 248, 0.96), rgba(245, 247, 248, 0));
+  pointer-events: none;
+}
+
+.topbar,
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(72px, 15vh, 144px);
+}
+
+.topbar a {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.hero-content {
+  width: min(820px, 100%);
+}
+
+.eyebrow,
+.section-label,
+.date {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: #9be7ff;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 22px;
+  font-size: clamp(3rem, 8vw, 7.2rem);
+  line-height: 0.92;
+  max-width: 760px;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  line-height: 1.12;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 1.08rem;
+}
+
+.intro {
+  max-width: 720px;
+  color: #edf7ff;
+  font-size: clamp(1.08rem, 2.2vw, 1.38rem);
+}
+
+.hero-badges,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-badges {
+  margin-top: 28px;
+}
+
+.hero-badges span {
+  padding: 8px 12px;
+  border: 1px solid rgba(155, 231, 255, 0.34);
+  background: rgba(47, 137, 168, 0.18);
+  color: #dff8ff;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.actions {
+  margin-top: 34px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.button.primary {
+  background: #f8fbff;
+  color: #0d2230;
+}
+
+.button.secondary {
+  border-color: rgba(255, 255, 255, 0.34);
+  color: #f8fbff;
+}
+
+main {
+  width: min(1160px, calc(100% - 36px));
+  margin: 0 auto;
+}
+
+.section {
+  padding: clamp(48px, 8vw, 88px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.split,
+.two-columns,
+.soft-skills {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+}
+
+.split > p {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.tech-band {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-inline: max(18px, calc((100vw - 1160px) / 2));
+  background:
+    linear-gradient(135deg, rgba(47, 137, 168, 0.12), rgba(138, 98, 73, 0.12)),
+    #eef2f3;
+}
+
+.section-heading {
+  max-width: 790px;
+  margin-bottom: 32px;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.skill-card {
+  min-height: 198px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  box-shadow: var(--shadow);
+}
+
+.skill-card span {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: var(--tech);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.skill-card p,
+.timeline-item p,
+.footer span {
+  color: var(--muted);
+}
+
+.skill-card.featured {
+  background: linear-gradient(135deg, #123342, #5d3f30);
+  color: #f8fbff;
+}
+
+.skill-card.featured span,
+.skill-card.featured p {
+  color: #ccecf7;
+}
+
+.timeline-item {
+  min-height: 210px;
+  padding: 28px;
+  background: var(--surface-solid);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.timeline-item .date {
+  color: var(--tech);
+}
+
+.company {
+  margin-bottom: 0;
+  font-weight: 900;
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.course-list li,
+.pill-list span {
+  padding: 15px 16px;
+  background: var(--surface-solid);
+  border: 1px solid var(--line);
+  font-weight: 800;
+  box-shadow: 0 12px 34px rgba(17, 24, 39, 0.06);
+}
+
+.soft-skills {
+  border-bottom: 0;
+}
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 30px;
+  padding: clamp(44px, 8vw, 76px) clamp(20px, 6vw, 82px);
+  background: linear-gradient(135deg, #111820, #4f3629);
+  color: #f8fbff;
+}
+
+.footer .section-label {
+  color: #9be7ff;
+}
+
+address {
+  display: grid;
+  gap: 10px;
+  font-style: normal;
+}
+
+address a {
+  color: #f8fbff;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 820px) {
+  .hero {
+    min-height: auto;
+    background-position: 58% center;
+  }
+
+  .topbar {
+    justify-content: flex-start;
+    margin-bottom: 64px;
+  }
+
+  .split,
+  .two-columns,
+  .soft-skills,
+  .footer {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-grid,
+  .course-list {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    padding-inline: 18px;
+  }
+
+  .topbar a,
+  .button {
+    width: 100%;
+  }
+}
