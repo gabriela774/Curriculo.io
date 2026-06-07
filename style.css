@@ -31,6 +31,64 @@ a {
   color: inherit;
 }
 
+.topbar a,
+.button,
+.hero-badges span,
+.skill-card,
+.timeline-item,
+.course-list li,
+.pill-list span {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.topbar a::before,
+.button::before,
+.hero-badges span::before,
+.skill-card::before,
+.timeline-item::before,
+.course-list li::before,
+.pill-list span::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    rgba(155, 231, 255, 0.26),
+    transparent 32%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.topbar a:hover,
+.button:hover,
+.hero-badges span:hover,
+.skill-card:hover,
+.timeline-item:hover,
+.course-list li:hover,
+.pill-list span:hover {
+  transform: translateY(-4px);
+  border-color: rgba(47, 137, 168, 0.48);
+  box-shadow: 0 28px 70px rgba(17, 24, 39, 0.16);
+}
+
+.topbar a:hover::before,
+.button:hover::before,
+.hero-badges span:hover::before,
+.skill-card:hover::before,
+.timeline-item:hover::before,
+.course-list li:hover::before,
+.pill-list span:hover::before {
+  opacity: 1;
+}
+
 .hero {
   position: relative;
   min-height: 94vh;
@@ -320,6 +378,32 @@ address a {
   color: #f8fbff;
   text-decoration-color: rgba(255, 255, 255, 0.35);
   text-underline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .topbar a,
+  .button,
+  .hero-badges span,
+  .skill-card,
+  .timeline-item,
+  .course-list li,
+  .pill-list span {
+    transition: none;
+  }
+
+  .topbar a:hover,
+  .button:hover,
+  .hero-badges span:hover,
+  .skill-card:hover,
+  .timeline-item:hover,
+  .course-list li:hover,
+  .pill-list span:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 820px) {
